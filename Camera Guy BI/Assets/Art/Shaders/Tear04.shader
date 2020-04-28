@@ -4,6 +4,7 @@ Shader "Tear04"
 {
 	Properties
 	{
+		_Emission("Emission", 2D) = "white" {}
 		_offset("offset", Float) = 0.34
 		_noisescale("noise scale", Float) = 1.38
 		_SmoothStepMax("SmoothStep Max", Range( 0 , 1)) = 0.2665786
@@ -29,6 +30,8 @@ Shader "Tear04"
 		uniform float _SmoothStepMin;
 		uniform float _SmoothStepMax;
 		uniform float _offset;
+		uniform sampler2D _Emission;
+		uniform float4 _Emission_ST;
 
 
 		inline float noise_randomValue (float2 uv) { return frac(sin(dot(uv, float2(12.9898, 78.233)))*43758.5453); }
@@ -340,6 +343,9 @@ WireConnection;63;1;81;0
 WireConnection;63;2;82;0
 WireConnection;18;0;12;0
 WireConnection;18;1;10;0
+WireConnection;15;0;7;3
+WireConnection;15;1;9;0
+WireConnection;47;0;63;0
 WireConnection;16;0;14;0
 WireConnection;16;1;10;0
 WireConnection;47;0;63;0
