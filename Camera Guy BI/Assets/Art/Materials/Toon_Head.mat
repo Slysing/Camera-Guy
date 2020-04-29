@@ -99,7 +99,7 @@ Material:
     - _DstBlend: 0
     - _EmissionBrightness: 100
     - _EmissionOffset: 0.223
-    - _Gloss: 0.185
+    - _Gloss: 0.335
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

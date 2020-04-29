@@ -111,10 +111,10 @@ public class DialogueManager : MonoBehaviour
 
         dialogueBox.text = string.Empty;
 
-        if(characterDictionary[characterName].voiceClip != null)
-        {
-            voicePlayer.PlayOneShot(characterDictionary[characterName].voiceClip);
-        }  
+      //if(characterDictionary[characterName].voiceClip != null)
+      //{
+      //    voicePlayer.PlayOneShot(characterDictionary[characterName].voiceClip);
+      //}  
 
         // Sets the name box
         nameBox.text = characterName;

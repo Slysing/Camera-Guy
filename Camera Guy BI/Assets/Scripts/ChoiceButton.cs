@@ -7,6 +7,7 @@ public class ChoiceButton : MonoBehaviour
     public Button button;
     public TextMeshProUGUI text;
     public string scene;
+    public DialogueManager dm;
 
     ChoiceBox choiceBox;
 
@@ -21,7 +22,7 @@ public class ChoiceButton : MonoBehaviour
 
     public void Update()
     {
-     if(Input.GetKeyDown(KeyCode.E))
+     if(Input.GetKeyDown(KeyCode.E) && dm.choiceBoxActive)
         {
             OnSelect();
         } 
