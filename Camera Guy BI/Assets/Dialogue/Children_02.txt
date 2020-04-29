@@ -1,5 +1,5 @@
-ChildLeft|smile|...
-ChildRight|smile|Don't worry about them. It's hard work and we don't make much, but it's honest work.
+ChildLeft|smile|testline
+ChildRight|smile|Don't worry about them. It's we're tired and we don't make much, but it's honest work.
 ChildRight|strain|HEAVE!
 ChildLeft|smile|We get paid two cents for every floor we we take someone up or down.
 ChildRight|pensive|We might be able to afford new shoes at the end of the week sir!

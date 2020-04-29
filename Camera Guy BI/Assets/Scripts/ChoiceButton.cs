@@ -18,12 +18,23 @@ public class ChoiceButton : MonoBehaviour
     }
 
     [ContextMenu("Test")]
-    public void OnClick()
+
+    public void Update()
     {
-        choiceBox.dm.choiceBoxActive = false;
-        choiceBox.canvasGroup.alpha = 0;
-        choiceBox.canvasGroup.interactable = choiceBox.canvasGroup.blocksRaycasts = (choiceBox.canvasGroup.alpha == 1);
-        choiceBox.dm.LoadSceneTextFile(scene);
-        choiceBox.dm.LoadNewLine();
+     if(Input.GetKeyDown(KeyCode.E))
+        {
+            OnSelect();
+        } 
+    }
+    public void OnSelect()
+    {
+        if(choiceBox.choices[choiceBox.selectedOption].gameObject == gameObject)
+        {
+            choiceBox.dm.choiceBoxActive = false;
+            choiceBox.canvasGroup.alpha = 0;
+            choiceBox.canvasGroup.interactable = choiceBox.canvasGroup.blocksRaycasts = (choiceBox.canvasGroup.alpha == 1);
+            choiceBox.dm.LoadSceneTextFile(scene);
+            choiceBox.dm.LoadNewLine();
+        } 
     }
 }
