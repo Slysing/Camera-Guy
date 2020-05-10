@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: f781901e677316a4097b09fad38e5d5c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 37e6f91f3efb0954cbdce254638862ea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AntiSpecMap:
@@ -60,7 +60,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: c9a1daa61a9c521419e68e8063c897dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1fed6c80eb35b094a9c5bd016df0658a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

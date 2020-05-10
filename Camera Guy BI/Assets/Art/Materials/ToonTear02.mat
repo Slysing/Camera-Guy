@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ToonTear02
-  m_Shader: {fileID: 4800000, guid: ac6c55b793744ab478e1224b7ed61f03, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4252bbd70021e0d41b3ccbf08829f402, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -77,6 +77,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Specularramp:
         m_Texture: {fileID: 2800000, guid: 14656c99dff77cb4ba68513ede2b1cb9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ToonRamp:
