@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: KantiHead
-    second: {fileID: 2100000, guid: cd30bbf3d14a76e43932bd71977e1e1a, type: 2}
+    second: {fileID: 2100000, guid: 3667da56214845e4f8aa5eebedb86c49, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

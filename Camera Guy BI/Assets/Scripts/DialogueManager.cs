@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
     int currentLine;
     string characterName, characterDialogue, characterExpression;
 
+    public KeyCode advanceButton = KeyCode.E;
+
     AudioSource voicePlayer;
 
     private void Awake()
@@ -109,10 +111,10 @@ public class DialogueManager : MonoBehaviour
 
         dialogueBox.text = string.Empty;
 
-        if(characterDictionary[characterName].voiceClip != null)
-        {
-            voicePlayer.PlayOneShot(characterDictionary[characterName].voiceClip);
-        }  
+      //if(characterDictionary[characterName].voiceClip != null)
+      //{
+      //    voicePlayer.PlayOneShot(characterDictionary[characterName].voiceClip);
+      //}  
 
         // Sets the name box
         nameBox.text = characterName;
@@ -137,6 +139,10 @@ public class DialogueManager : MonoBehaviour
         choiceBox.canvasGroup.alpha = 1;
         choiceBox.canvasGroup.interactable = choiceBox.canvasGroup.blocksRaycasts = (choiceBox.canvasGroup.alpha == 1);
         int choices = (parsedText.Count() - 1) / 2;
+
+        //choice number reset
+        choiceBox.optionNumber = choices;
+
         for (int i = 1; i <= choices; i++)
         {
             choiceBox.choices[i - 1].gameObject.SetActive(true);
@@ -166,7 +172,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(advanceButton))
         {
             // Eats input if no matching file exists or if the UI is fading in/out or if the player is making a choice
             if (!File.Exists($"{dialogueFilePath + sceneName}.txt") || isFading || choiceBoxActive) 
