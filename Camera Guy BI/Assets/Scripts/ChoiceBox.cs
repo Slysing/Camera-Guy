@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ChoiceBox : MonoBehaviour
 {
@@ -29,17 +30,24 @@ public class ChoiceBox : MonoBehaviour
         if (Input.GetKeyDown(upButton) && selectedOption != 0)
         {
             selectedOption--;
+            ColorChange();
         }
 
         if (Input.GetKeyDown(downButton) && selectedOption != optionNumber-1)
         {
             selectedOption++;
-        }
+            ColorChange();
+        } 
+    }
 
-        if(Input.GetKeyDown(KeyCode.J))
+    private void ColorChange()
+    {
+        foreach (ChoiceButton buttonScript in choices)
         {
-            Debug.Log(selectedOption);
-            Debug.Log(optionNumber);
+            if(buttonScript == choices[selectedOption])
+            {
+                buttonScript.gameObject.GetComponent<Button>()
+            }
         }
     }
 }

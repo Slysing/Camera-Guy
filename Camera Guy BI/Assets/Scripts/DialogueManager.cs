@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    bool showingDialogue;
+    public bool showingDialogue;
     bool isFading;
     bool isDisplayingText;
     [HideInInspector]
@@ -103,6 +103,12 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayChoices(parsedText);
             return;
+        }
+        if (parsedText[0] == "Camera")
+        {
+            //load camera text here
+            LoadNewLine();
+            return; 
         }
 
         characterName = parsedText[0];
