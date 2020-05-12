@@ -38,4 +38,14 @@ public class ChoiceButton : MonoBehaviour
             choiceBox.dm.LoadNewLine();
         } 
     }
+
+
+    public void SetColour(Color newColour)
+    {
+        button.image.color = newColour;
+    }
+    public void SetSprite(Sprite newSprite)
+    {
+        button.image.sprite = newSprite;
+    }
 }
