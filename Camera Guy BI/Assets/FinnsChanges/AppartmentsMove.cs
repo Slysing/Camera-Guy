@@ -13,6 +13,9 @@ public class AppartmentsMove : MonoBehaviour
     public Animator floorRotate12;
     public Animator floorRotate13;
     public Animator floorRotate14;
+    public GameObject elevatorCollider;
+    public GameObject elevatorCollider2;
+    public GameObject elevatorCollider3;
 
 
     void Start()
@@ -35,6 +38,9 @@ public class AppartmentsMove : MonoBehaviour
             floorRotate12.SetTrigger("rotate");
             floorRotate13.SetTrigger("rotate");
             floorRotate14.SetTrigger("rotate");
+            elevatorCollider.SetActive(false);
+            elevatorCollider2.SetActive(false);
+            elevatorCollider3.SetActive(true);
 
         }
     }
@@ -52,7 +58,6 @@ public class AppartmentsMove : MonoBehaviour
         Debug.Log("PlayerLeft");
         Use.SetActive(false);
         Usable = false;
-        //openDoor.SetTrigger("Door");
     }
 
 

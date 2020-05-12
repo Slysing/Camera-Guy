@@ -9,7 +9,7 @@ public class DoorOpen : MonoBehaviour
     public bool Usable = false;
     public GameObject Use;
     Animation anim;
-    public Animator openDoor;
+    public Animator doorMove;
 
 
     void Start()
@@ -26,7 +26,7 @@ public class DoorOpen : MonoBehaviour
         {
             Debug.Log("Open");
 
-            openDoor.SetTrigger("Door");
+            doorMove.SetTrigger("Move");
 
         }
     }
@@ -44,7 +44,7 @@ public class DoorOpen : MonoBehaviour
         Debug.Log("PlayerLeft");
         Use.SetActive(false);
         Usable = false;
-        openDoor.SetTrigger("Door");
+        doorMove.SetTrigger("Move");
     }
 
 
