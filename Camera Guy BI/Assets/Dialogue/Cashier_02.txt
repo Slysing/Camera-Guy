@@ -1,0 +1,14 @@
+Cashier|sad|Ah, Milk.
+Cashier|sad|A good choice.
+Cashier|sad|...
+Gangster|smile|NOT SO FAST DWEEBS
+Another Gangster|smile|THIS IS A ROBBERY
+Cashier|strained|NO, NOT AGAIN!
+Gangster|pensive|Don't you move a muscle. We're drinking this store dry.
+Another Gangster|smile|And don't you try anything either tough guy,
+Another Gangster|smile|This is our sector, I don't give one shit about your footage.
+Another Gangster|smug|In this world, all that matters is the strength of your bones...
+Another Gangster|smug|And the man with the milk is king.
+Gangster|smug|Move out!
+||...
+Cashier|sad|Aww shit not again.

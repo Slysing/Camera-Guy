@@ -51,7 +51,7 @@ public class ChoiceBox : MonoBehaviour
             SpriteChange();
         } 
     }
-    private void SpriteChange()
+    public void SpriteChange()
     {
         for (int i = 0; i < choices.Length; i++)
         {
@@ -65,7 +65,7 @@ public class ChoiceBox : MonoBehaviour
             }
         }
     }
-    private void ColorChange()
+    public void ColorChange()
     {
         if (selectedSprite == null || defaultSprite == null)
             return;

@@ -102,7 +102,7 @@ Material:
     - _Parallax: 0.02
     - _RimOffset: 0.894
     - _RimPower: 0.47
-    - _ShadowOffset: 0.42
+    - _ShadowOffset: 0.43
     - _SmoothStepMax: 0.2665786
     - _SmoothStepMin: 0.05271714
     - _SmoothnessTextureChannel: 0

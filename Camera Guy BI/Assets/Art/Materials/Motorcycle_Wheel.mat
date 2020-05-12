@@ -92,6 +92,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Emission_Max: 10
+    - _Emission_Min: 0.1
     - _Gloss: 0.161
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -118,5 +120,5 @@ Material:
     - _AlbedoTint: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0, g: 1, b: 0.8758622, a: 0}
+    - _RimColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularityColor: {r: 0.8980392, g: 0.7686275, b: 0.2509804, a: 0}

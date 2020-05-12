@@ -94,11 +94,13 @@ public class DialogueManager : MonoBehaviour
     /// Loads the next line from fileLines
     /// </summary>
     public void LoadNewLine()
-    { 
+    {
+
         // Split the line into its components and store them
         string[] parsedText = fileLines[currentLine].Split('|');
         currentLine++;
 
+        #region Parser non-dialogue exceptions.
         if (parsedText[0] == "[Choice]")
         {
             DisplayChoices(parsedText);
@@ -110,7 +112,12 @@ public class DialogueManager : MonoBehaviour
             LoadNewLine();
             return; 
         }
-
+        if (parsedText[0] == "[Var]")
+        {
+            //SetVariable(parsedText);
+            return;
+        }
+        #endregion
         characterName = parsedText[0];
         characterExpression = parsedText[1].ToLower();
         characterDialogue = parsedText[2];
@@ -142,6 +149,9 @@ public class DialogueManager : MonoBehaviour
     void DisplayChoices(string[] parsedText)
     {
         choiceBoxActive = true;
+        choiceBox.selectedOption = 0;
+        choiceBox.ColorChange();
+        choiceBox.SpriteChange();
         choiceBox.canvasGroup.alpha = 1;
         choiceBox.canvasGroup.interactable = choiceBox.canvasGroup.blocksRaycasts = (choiceBox.canvasGroup.alpha == 1);
         int choices = (parsedText.Count() - 1) / 2;
@@ -157,6 +167,41 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    /*void SetVariable(string[] parsedText)
+    {
+        System.Reflection.FieldInfo field = gm.GetType().GetField(parsedText[1]);
+
+        if (field != null)
+        {
+            if (field.FieldType == typeof(string))
+            {
+                field.SetValue(gm, parsedText[2]);
+            }
+            else if (field.FieldType == typeof(int))
+            {
+                try
+                {
+                    field.SetValue(gm, int.Parse(parsedText[2]));
+                }
+                catch (System.FormatException)
+                {
+                    Debug.LogError($"Invalid Conversion: {parsedText[2]} could not be cast to int");
+                }
+            }
+            else if (field.FieldType == typeof(bool))
+            {
+                field.SetValue(gm, parsedText[2] == "true" ? true : false);
+            }
+            else
+            {
+                Debug.LogError($"Field type \"{field.FieldType}\" is not supported");
+            }
+        }
+        else
+        {
+            Debug.Log($"Field {parsedText[1]} not found");
+        }
+    }*/
 
     /// <summary>
     /// Displays a given string letter by letter
@@ -169,6 +214,19 @@ public class DialogueManager : MonoBehaviour
 
         for (int i = 0; i < text.Length; i++) // Adds a letter to the textbox then waits the delay time
         {
+            if (text[i] == '<')
+            {
+                int indexOfClose = text.Substring(i).IndexOf('>');
+                if (indexOfClose == -1)
+                {
+                    dialogueBox.text += text[i];
+                    yield return new WaitForSeconds(delay);
+                    continue;
+                }
+                dialogueBox.text += text.Substring(i, indexOfClose);
+                i += indexOfClose - 1;
+                continue;
+            }
             dialogueBox.text += text[i];
             yield return new WaitForSeconds(delay);
         }
