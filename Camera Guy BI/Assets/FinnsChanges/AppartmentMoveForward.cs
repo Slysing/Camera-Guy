@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppartmentMoveBack : MonoBehaviour
+public class AppartmentMoveForward : MonoBehaviour
 {
-
     public bool Usable = false;
     public GameObject Use;
-    public GameObject elevatorCollider;
     Animation anim;
     public Animator appartmentMove;
 
@@ -25,7 +23,7 @@ public class AppartmentMoveBack : MonoBehaviour
         {
             Debug.Log("Open");
 
-            appartmentMove.SetTrigger("moveBack");
+            appartmentMove.SetTrigger("moveClose");
 
         }
     }
@@ -36,7 +34,6 @@ public class AppartmentMoveBack : MonoBehaviour
         Debug.Log("PlayerEntered");
         Use.SetActive(true);
         Usable = true;
-        elevatorCollider.SetActive(true);
     }
 
     void OnTriggerExit(Collider other)
@@ -44,6 +41,5 @@ public class AppartmentMoveBack : MonoBehaviour
         Debug.Log("PlayerLeft");
         Use.SetActive(false);
         Usable = false;
-        //openDoor.SetTrigger("Door");
     }
 }

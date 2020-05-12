@@ -7,6 +7,7 @@ public class AppartmentsMove : MonoBehaviour
     public bool Usable = false;
     public GameObject Use;
     Animation anim;
+    public Animator floorRotate8;
     public Animator floorRotate9;
     public Animator floorRotate10;
     public Animator floorRotate11;
@@ -32,6 +33,7 @@ public class AppartmentsMove : MonoBehaviour
         {
             Debug.Log("Open");
 
+            floorRotate8.SetTrigger("rotate");
             floorRotate9.SetTrigger("rotate");
             floorRotate10.SetTrigger("rotate");
             floorRotate11.SetTrigger("rotate");

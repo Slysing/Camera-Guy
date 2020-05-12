@@ -9,6 +9,7 @@ public class AppartmentRotateStop : MonoBehaviour
     public bool Usable = false;
     public GameObject Use;
     Animation anim;
+    public Animator floorRotate8;
     public Animator floorRotate9;
     public Animator floorRotate10;
     public Animator floorRotate11;
@@ -17,6 +18,7 @@ public class AppartmentRotateStop : MonoBehaviour
     public Animator floorRotate14;
     public GameObject elevatorCollider;
     public GameObject enableCollider;
+    public GameObject behindWall;
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class AppartmentRotateStop : MonoBehaviour
         {
             Debug.Log("Open");
 
+            floorRotate8.SetTrigger("stop");
             floorRotate9.SetTrigger("stop");
             floorRotate10.SetTrigger("stop");
             floorRotate11.SetTrigger("stop");
@@ -40,6 +43,7 @@ public class AppartmentRotateStop : MonoBehaviour
             floorRotate14.SetTrigger("stop");
             elevatorCollider.SetActive(false);
             enableCollider.SetActive(true);
+            behindWall.SetActive(true);
             Use.SetActive(false);
 
         }

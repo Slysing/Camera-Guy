@@ -28,10 +28,4 @@ public class toggleOn : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        //appartment1.SetActive(false);
-        //appartment2.SetActive(false);
-        //appartment3.SetActive(false);
-    }
 }
