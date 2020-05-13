@@ -11,7 +11,7 @@ public class ChoiceButton : MonoBehaviour
 
     ChoiceBox choiceBox;
 
-    private void OnValidate()
+    private void Awake()
     {
         choiceBox = FindObjectOfType<ChoiceBox>();
         button = GetComponent<Button>();

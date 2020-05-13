@@ -12,9 +12,13 @@ public class DialogueActivation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !dm.showingDialogue && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, maxRayDistance, 1 << 10))
 
         {
-            dm.LoadSceneTextFile(hit.transform.name);
-            dm.LoadNewLine();
-            Debug.Log(hit.transform.name);
+            dm.sceneName = hit.transform.name;
+
+            if (Resources.Load<TextAsset>($"Dialogue/{dm.sceneName}") == null)
+            {
+                return;
+            }
+            dm.FadeInCanvas();
         }
     }
 }

@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        dialogueFilePath = $"{Application.dataPath + Path.DirectorySeparatorChar}Dialogue{Path.DirectorySeparatorChar}"; // Gets the folder in which scenes are stored
+        dialogueFilePath = $"{Application.dataPath + Path.DirectorySeparatorChar}Resources/Dialogue{Path.DirectorySeparatorChar}"; // Gets the folder in which scenes are stored
         canvasGroup = GetComponent<CanvasGroup>(); // Gets the canvas group to deal with fading opacity
         foreach (var characterPortraits in characters) // Creates the dictionary
         {
@@ -84,9 +84,24 @@ public class DialogueManager : MonoBehaviour
     /// <param name="_sceneName">The name of the scene. Determines the file to grab. Scene dialogues should be named after the scene they take place in</param>
     public void LoadSceneTextFile(string _sceneName)
     {
-        sceneName = _sceneName;
-        fileLines = File.ReadAllLines($"{dialogueFilePath + _sceneName}.txt");
         currentLine = 0;
+
+        sceneName = _sceneName;
+        // JAMES L new
+        var file = Resources.Load<TextAsset>($"Dialogue/{_sceneName}");
+
+        if (file == null)
+        {
+            Debug.Log("File not found: " + _sceneName);
+        }
+
+
+        fileLines = file.text.Split('\n');
+
+        //sceneName = _sceneName;
+        //fileLines = File.ReadAllLines($"{dialogueFilePath + _sceneName}.txt");
+        //currentLine = 0;
+
         ClearDialogueBox();
     }
 
@@ -238,9 +253,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKeyDown(advanceButton))
         {
-            // Eats input if no matching file exists or if the UI is fading in/out or if the player is making a choice
-            if (!File.Exists($"{dialogueFilePath + sceneName}.txt") || isFading || choiceBoxActive) 
+            if (Resources.Load<TextAsset>($"Dialogue/{sceneName}") == null || isFading || choiceBoxActive)
+            {
+                //print("DM Update: Couldn't find file: " + sceneName);
                 return;
+            }
 
             if (showingDialogue) // If dialogue boxes are visible
             {
@@ -311,6 +328,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         canvasGroup.interactable = canvasGroup.blocksRaycasts = (canvasGroup.alpha == 1);
+    }
+
+    public void FadeInCanvas()
+    {
+        StartCoroutine(FadeCanvas(uiFadeInSpeed, canvasGroup.alpha, 1)); // Fades in the UI
     }
 
     //IEnumerator FadeChoices
