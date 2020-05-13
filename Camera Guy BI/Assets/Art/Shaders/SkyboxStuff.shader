@@ -101,7 +101,7 @@ Shader "SkyboxStuff"
 }
 /*ASEBEGIN
 Version=18000
-296;73;1346;655;943.7024;312.0081;1.3;True;True
+162;73;1481;638;2203.046;625.7889;2.792735;True;True
 Node;AmplifyShaderEditor.CommentaryNode;12;-867.4656,63.88118;Inherit;False;582;248;;4;3;4;5;6;Mod Time;1,1,1,1;0;0
 Node;AmplifyShaderEditor.RangedFloatNode;6;-817.4655,116.8812;Inherit;False;Property;_TimeScale;TimeScale;0;0;Create;True;0;0;False;0;0.2;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleTimeNode;5;-658.4653,117.8812;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0
@@ -118,4 +118,4 @@ WireConnection;31;1;3;0
 WireConnection;0;0;31;0
 WireConnection;0;2;31;0
 ASEEND*/
-//CHKSM=6094959F860065B708C6849D225F70609062B27A
+//CHKSM=599090E5EE8E106770784444EB9AB87BD216285F
