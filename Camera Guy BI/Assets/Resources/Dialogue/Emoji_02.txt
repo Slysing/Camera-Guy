@@ -1,4 +1,5 @@
-LandLord|strain|Unfortunately, I sold my arms a few weeks ago, so I was unable to fix the door.
-LandLord|sad|...
+Camera|3
+Landlord|strain|Unfortunately, I sold my arms a few weeks ago, so I was unable to fix the door.
+Landlord|sad|...
 Landlord|smug|Buy the kung-fu brain injector system today! Only $399.99! Guarenteed to let you split any door into two smaller doors!
 [Choice]|<i>Slam the money on the counter</i>|Emoji_03|No.|Emoji_04

@@ -11,8 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float sprintSpeed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-    public bool canMove = true;
-    
+    public int canMove = 0;
   
     //Gravity
     public Transform groundCheck;
@@ -42,7 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        float moveSpeed = canMove? speed:0;
+        float moveSpeed = canMove==0? speed:0;
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = sprintSpeed;

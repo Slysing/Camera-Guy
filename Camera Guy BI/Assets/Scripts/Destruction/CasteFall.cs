@@ -33,8 +33,7 @@ public class CasteFall : MonoBehaviour
        //     colliders[i].enabled = false;
        // }
 
-        my_rb.isKinematic = false;
-        my_collider.enabled = true;
+        //my_collider.enabled = true;
     }
 
     // Update is called once per frame

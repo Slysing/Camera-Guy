@@ -6,30 +6,25 @@ public class CameraSwitch : MonoBehaviour
 {
     public Camera[] cameraArray;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetCamera(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetCamera(0);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Alpha1))
+    //    {
+    //        SetCamera(1);
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.Alpha2))
+    //    {
+    //        SetCamera(0);
+    //    }
+    //}
 
-    public void SetCamera(int input)
+    public void SetCamera(int input = 0)
     {
-        for (int i = 0; i < cameraArray.Length; i++)
+        Debug.Log(input);
+
+        foreach (Camera c in cameraArray)
         {
-            if (cameraArray[input] == cameraArray[i])
-            {
-                cameraArray[i].enabled = true;
-            }
-            else
-            {
-                cameraArray[i].enabled = false;
-            }
+            c.gameObject.SetActive(c == cameraArray[input]);
         }
     }
 }

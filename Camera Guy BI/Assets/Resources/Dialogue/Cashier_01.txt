@@ -1,3 +1,6 @@
+Camera|7
 Cashier|sad|Welcome to Milk™.
+Camera|8
 Cashier|sad|We got Milk™ Classic, superMilk™, Barry's Sparkling Milk®...
+Camera|9
 Cashier|sad|There's lots of milk. Just look around. 

@@ -1,2 +1,4 @@
-Gangster|strain|You looking at me [REDACTED TO COMPLY WITH LOCAL AND INTERNATIONAL GUIDELINES]?
+Camera|4
+Gangster|strain|You looking at me shithead?
+Camera|5
 Another Gangster|smile|Beat it, dingus.

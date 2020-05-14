@@ -111,7 +111,7 @@ Material:
     - _SpecIntensity: 0.469
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TimeScale: 0.2
+    - _TimeScale: 0.8
     - _UVSec: 0
     - _VoidNoiseScale: 1.38
     - _VoidNoiseScaleOffset: 6.16

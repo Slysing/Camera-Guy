@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ChoiceButton : MonoBehaviour
 {
-    public Button button;
+    public Image image;
     public TextMeshProUGUI text;
     public string scene;
     public DialogueManager dm;
@@ -14,7 +14,7 @@ public class ChoiceButton : MonoBehaviour
     private void Awake()
     {
         choiceBox = FindObjectOfType<ChoiceBox>();
-        button = GetComponent<Button>();
+        image = GetComponent<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -22,7 +22,7 @@ public class ChoiceButton : MonoBehaviour
 
     public void Update()
     {
-     if(Input.GetKeyDown(KeyCode.E) && dm.choiceBoxActive)
+     if(Input.GetKeyDown(dm.advanceButton) && dm.choiceBoxActive)
         {
             OnSelect();
         } 
@@ -36,16 +36,16 @@ public class ChoiceButton : MonoBehaviour
             choiceBox.canvasGroup.interactable = choiceBox.canvasGroup.blocksRaycasts = (choiceBox.canvasGroup.alpha == 1);
             choiceBox.dm.LoadSceneTextFile(scene);
             choiceBox.dm.LoadNewLine();
-        } 
+        }
     }
 
 
     public void SetColour(Color newColour)
     {
-        button.image.color = newColour;
+        image.color = newColour;
     }
     public void SetSprite(Sprite newSprite)
     {
-        button.image.sprite = newSprite;
+        image.sprite = newSprite;
     }
 }

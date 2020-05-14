@@ -53,6 +53,12 @@ public class DialogueManager : MonoBehaviour
 
     public KeyCode advanceButton = KeyCode.E;
 
+    private PlayerMovement playerMovement;
+
+    private EventManager em;
+    private CameraSwitch cameraSwitch;
+
+
     AudioSource voicePlayer;
 
     private void Awake()
@@ -66,6 +72,13 @@ public class DialogueManager : MonoBehaviour
         ClearDialogueBox(); // Clears the dialogue box, just in case
 
         voicePlayer = GetComponent<AudioSource>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        em = FindObjectOfType<EventManager>();
+        cameraSwitch = FindObjectOfType<CameraSwitch>();
+
+        //Sets the alpha of the general/dialogue canvas group and the choice canvas group to 0 to emable faster iteration
+        canvasGroup.alpha = 0;
+        choiceBox.canvasGroup.alpha = 0;
     }
 
     /// <summary>
@@ -123,13 +136,24 @@ public class DialogueManager : MonoBehaviour
         }
         if (parsedText[0] == "Camera")
         {
-            //load camera text here
+            try
+            {
+                int i;
+                i = int.Parse(parsedText[1]);
+                cameraSwitch.SetCamera(i);
+            }
+            catch (System.FormatException)
+            {
+                Debug.LogError($"Invalid Conversion: {parsedText[1]} could not be cast to int");
+            }
+            
             LoadNewLine();
             return; 
         }
         if (parsedText[0] == "[Var]")
         {
-            //SetVariable(parsedText);
+            SetVariable(parsedText);
+            LoadNewLine();
             return;
         }
         #endregion
@@ -165,14 +189,21 @@ public class DialogueManager : MonoBehaviour
     {
         choiceBoxActive = true;
         choiceBox.selectedOption = 0;
+
         choiceBox.ColorChange();
         choiceBox.SpriteChange();
+
         choiceBox.canvasGroup.alpha = 1;
         choiceBox.canvasGroup.interactable = choiceBox.canvasGroup.blocksRaycasts = (choiceBox.canvasGroup.alpha == 1);
         int choices = (parsedText.Count() - 1) / 2;
 
         //choice number reset
         choiceBox.optionNumber = choices;
+
+        foreach (ChoiceButton cb in choiceBox.choices)
+        {
+            cb.gameObject.SetActive(false);
+        }
 
         for (int i = 1; i <= choices; i++)
         {
@@ -182,21 +213,21 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    /*void SetVariable(string[] parsedText)
+    void SetVariable(string[] parsedText)
     {
-        System.Reflection.FieldInfo field = gm.GetType().GetField(parsedText[1]);
+        System.Reflection.FieldInfo field = em.GetType().GetField(parsedText[1]);
 
         if (field != null)
         {
             if (field.FieldType == typeof(string))
             {
-                field.SetValue(gm, parsedText[2]);
+                field.SetValue(em, parsedText[2]);
             }
             else if (field.FieldType == typeof(int))
             {
                 try
                 {
-                    field.SetValue(gm, int.Parse(parsedText[2]));
+                    field.SetValue(em, int.Parse(parsedText[2]));
                 }
                 catch (System.FormatException)
                 {
@@ -205,7 +236,7 @@ public class DialogueManager : MonoBehaviour
             }
             else if (field.FieldType == typeof(bool))
             {
-                field.SetValue(gm, parsedText[2] == "true" ? true : false);
+                field.SetValue(em, parsedText[2] == "true" ? true : false);
             }
             else
             {
@@ -216,7 +247,7 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log($"Field {parsedText[1]} not found");
         }
-    }*/
+    }
 
     /// <summary>
     /// Displays a given string letter by letter
@@ -322,12 +353,22 @@ public class DialogueManager : MonoBehaviour
 
         showingDialogue = !showingDialogue; // Toggles the representation of whether the UI is visible
 
-        if (end == 1 && !isDisplayingText) // If fading in
+        if (end == 1) // If fading in
         {
-            LoadNewLine(); // Loads the next line
+            if(!isDisplayingText)
+            {
+                LoadNewLine(); // Loads the next line
+            }
+
+            playerMovement.canMove++; //When canMove is above zero, the player can't move.
+        }
+        if (end == 0)
+        {
+            playerMovement.canMove--; //When canMove is above zero, the player can't move.
+            cameraSwitch.SetCamera();
         }
 
-        canvasGroup.interactable = canvasGroup.blocksRaycasts = (canvasGroup.alpha == 1);
+            canvasGroup.interactable = canvasGroup.blocksRaycasts = (canvasGroup.alpha == 1);
     }
 
     public void FadeInCanvas()

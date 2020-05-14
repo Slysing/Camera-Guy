@@ -27,10 +27,7 @@ public class ChoiceBox : MonoBehaviour
         upButton = KeyCode.W;
         ColorChange();
         SpriteChange();
-    }
 
-    private void OnValidate()
-    {
         dm = FindObjectOfType<DialogueManager>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
