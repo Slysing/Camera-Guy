@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnContact: 1
+  lifeTimer: 0.25
 --- !u!82 &2916447427734077672
 AudioSource:
   m_ObjectHideFlags: 0

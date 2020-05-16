@@ -5,6 +5,7 @@ using UnityEngine;
 public class WreckingBall : MonoBehaviour
 {
   public  bool destroyOnContact = true;
+    public float lifeTimer = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,11 @@ public class WreckingBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lifeTimer -= Time.deltaTime;
+        if (lifeTimer <= 0)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
@@ -34,4 +40,6 @@ public class WreckingBall : MonoBehaviour
 
 
     }
+
+
 }
