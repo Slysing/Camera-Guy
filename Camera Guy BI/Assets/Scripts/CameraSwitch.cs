@@ -20,8 +20,6 @@ public class CameraSwitch : MonoBehaviour
 
     public void SetCamera(int input = 0)
     {
-        Debug.Log(input);
-
         foreach (Camera c in cameraArray)
         {
             c.gameObject.SetActive(c == cameraArray[input]);

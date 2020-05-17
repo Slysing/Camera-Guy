@@ -1,4 +1,7 @@
 Camera|0
+[Var]|faceIndex|6
 Landlord|sad|<i> Their eyes glaze over and their speakers fire up as you leave them </i>
 Landlord|sad|<i> A raspy voice cuts through the cacophany </i>
+[Var]|faceIndex|2
 Landlord|smile|My offer is still available to you should you choose.
+[Var]|faceIndex|0

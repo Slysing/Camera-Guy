@@ -153,8 +153,17 @@ public class DialogueManager : MonoBehaviour
         if (parsedText[0] == "[Var]")
         {
             SetVariable(parsedText);
-            LoadNewLine();
+
+            //taken from the advance button section of update. 
+            //Fixes variables at the end of the dialogue requiring an extra press of advance button.
+            if (currentLine >= fileLines.Length) // If there are no more lines and system is not typing out
+            {
+                EndSequence();
+            } else {
+                LoadNewLine();
+            }
             return;
+
         }
         #endregion
         characterName = parsedText[0];
@@ -294,11 +303,7 @@ public class DialogueManager : MonoBehaviour
             {
                 if (currentLine >= fileLines.Length && !isDisplayingText) // If there are no more lines and system is not typing out
                 {
-                    if (clearAfterScene) // Clears the scene if told to
-                    {
-                        sceneName = string.Empty;
-                    }
-                    StartCoroutine(FadeCanvas(uiFadeInSpeed, canvasGroup.alpha, 0)); // Fades out the UI
+                    EndSequence();
                     return;
                 }
                 if (isDisplayingText) // If the system is typing out
@@ -317,6 +322,15 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(FadeCanvas(uiFadeInSpeed, canvasGroup.alpha, 1)); // Fades in the UI
             }
         }
+    }
+
+    void EndSequence()
+    {
+        if (clearAfterScene) // Clears the scene if told to
+        {
+            sceneName = string.Empty;
+        }
+        StartCoroutine(FadeCanvas(uiFadeInSpeed, canvasGroup.alpha, 0)); // Fades out the UI
     }
 
     /// <summary>

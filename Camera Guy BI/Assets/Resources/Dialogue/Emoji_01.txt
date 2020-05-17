@@ -2,5 +2,6 @@ Camera|1
 Landlord|smile|<i>As you approach, you hear the sounds of a hundred advertisements playing from a thousand speakers on this robot's body.</i>
 Landlord|smile|...buy buy buy nootropics online at www.c...  ...a STEAL at only $$23.00 and win a... <i> ...cheering sounds... </i>
 Camera|2
+[Var]|faceIndex|3
 Landlord|pensive|Greetings mister, come to pay your bills early?
 [Choice]|I thought you said you were going to fix the door|Emoji_02|Hey bloodsucker, that door still looks broken.|Emoji_02

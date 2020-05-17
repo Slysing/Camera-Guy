@@ -1,2 +1,4 @@
 Camera|6
+[Var]|faceIndex|4
 Landlord|smile|An excellent choice.
+[Var]|faceIndex|0

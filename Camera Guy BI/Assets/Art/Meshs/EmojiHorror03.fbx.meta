@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 725a6782fcb13419b81f69846136baba
+guid: 092f0991fc1a3c3449dd76d406675a70
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,23 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: stoneDark
-    second: {fileID: 2100000, guid: 1208087b51dca9940bef9b4f6e7b1cc7, type: 2}
+      name: FaceMaterial
+    second: {fileID: 2100000, guid: 4e9445f60d3f7fe44821a41529e38dbc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: stoneLight
-    second: {fileID: 2100000, guid: 07b3e824492bae34c97a4dbabf64e1a4, type: 2}
+      name: Surfaces
+    second: {fileID: 2100000, guid: 44401d5a9b1d6a948a17d53295f64538, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: wood
-    second: {fileID: 2100000, guid: 82453ce8e30ac52428740c0feae6b99f, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: woodDark
-    second: {fileID: 2100000, guid: 9cbff919f751e1244859dbbd8c0aec7f, type: 2}
+      name: Wires
+    second: {fileID: 2100000, guid: c5603026494b9c145874c13fad386dcb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -54,7 +49,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -100,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 3
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

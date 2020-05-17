@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7799507884503279067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.383, y: -0.453, z: 0.171}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8489454057156359423}
@@ -131,7 +131,7 @@ MonoBehaviour:
   sprintSpeed: 12
   gravity: -19.62
   jumpHeight: 1.5
-  canMove: 1
+  canMove: 0
   groundCheck: {fileID: 8489454056252933509}
   groundDistance: 0.4
   groundMask:
@@ -204,7 +204,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdab5288acbf1a74e95375f513102890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 85
+  mouseSensitivity: 60
   playerBody: {fileID: 8489454056397862385}
 --- !u!114 &8489454057156359419
 MonoBehaviour:
