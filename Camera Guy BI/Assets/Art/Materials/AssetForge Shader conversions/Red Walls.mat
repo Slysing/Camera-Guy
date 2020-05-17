@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wood Dark
+  m_Name: Red Walls
   m_Shader: {fileID: 4800000, guid: ac6c55b793744ab478e1224b7ed61f03, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: bea7f157e58694ef9b6bd5346b93dbef, type: 3}
+        m_Texture: {fileID: 2800000, guid: 01cb3854791fe4b0991a076e04212efd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AntiSpecMap:
@@ -94,7 +94,7 @@ Material:
     - _DstBlend: 0
     - _Emission_Max: 10
     - _Emission_Min: 0.1
-    - _Gloss: 0.161
+    - _Gloss: 0.33
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -102,23 +102,23 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimOffset: 0.894
+    - _RimOffset: 0.63
     - _RimPower: 0.47
     - _ShadowOffset: 0.43
     - _SmoothStepMax: 0.2665786
     - _SmoothStepMin: 0.05271714
     - _SmoothnessTextureChannel: 0
-    - _SpecIntensity: 0.469
+    - _SpecIntensity: 0.5352941
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _VoidNoiseScale: 1.38
-    - _VoidNoiseScaleOffset: 6.16
+    - _VoidNoiseScaleOffset: 0.34
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _AlbedoTint: {r: 0.156, g: 0.058842108, b: 0.026684212, a: 1}
+    - _AlbedoTint: {r: 0.4716981, g: 0.10916126, b: 0.07342471, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SpecularityColor: {r: 0.8773585, g: 0.53234535, b: 0.4262638, a: 0}
+    - _SpecularityColor: {r: 1, g: 1, b: 1, a: 0}
