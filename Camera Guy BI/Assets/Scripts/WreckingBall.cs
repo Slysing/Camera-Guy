@@ -31,7 +31,7 @@ public class WreckingBall : MonoBehaviour
             {
                 collision.transform.GetComponent<Rigidbody>().isKinematic = false;
                 collision.transform.GetComponent<Rigidbody>().AddExplosionForce(100, transform.position, 10); 
-                AudioManager.Instance.WreckIT();
+         //       AudioManager.Instance.WreckIT();
             }
         }
 
