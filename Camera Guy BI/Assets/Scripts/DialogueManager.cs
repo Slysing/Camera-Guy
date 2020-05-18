@@ -249,13 +249,7 @@ public class DialogueManager : MonoBehaviour
             }
             else if (field.FieldType == typeof(bool))
             {
-                System.Text.RegularExpressions.Regex.Replace(parsedText[2], @"\s+", "");
                 field.SetValue(em, parsedText[2].Contains("true") ? true : false);
-                //print(parsedText[2].Length) evaluates as 5. There's an extra character in the string that prevents "== true" from working
-                foreach (char letter in parsedText[2])
-                {
-                    Debug.Log(letter);
-                } //LINEBREAK???
             }
             else
             {
@@ -303,6 +297,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKeyDown(advanceButton))
         {
+            //Debug.Log(em.pauseDialogue);
             if (Resources.Load<TextAsset>($"Dialogue/{sceneName}") == null || isFading || choiceBoxActive || em.pauseDialogue)
             {
                 //print("DM Update: Couldn't find file: " + sceneName);
@@ -354,6 +349,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (end == 1) // If fading in
         {
+            showingDialogue = true; //putting this here prevents an issue where dialogue can be triggered multiple times by spamming
             LoadSceneTextFile(sceneName);
         }
 
@@ -375,8 +371,6 @@ public class DialogueManager : MonoBehaviour
         }
         isFading = false; // Marks the UI as no longer fading
 
-        showingDialogue = !showingDialogue; // Toggles the representation of whether the UI is visible
-
         if (end == 1) // If fading in
         {
             if(!isDisplayingText)
@@ -390,6 +384,7 @@ public class DialogueManager : MonoBehaviour
         {
             playerMovement.canMove--; //When canMove is above zero, the player can't move.
             cameraSwitch.SetCamera();
+            showingDialogue = false; //showingDialogue tracks if the UI is visible
         }
 
             canvasGroup.interactable = canvasGroup.blocksRaycasts = (canvasGroup.alpha == 1);

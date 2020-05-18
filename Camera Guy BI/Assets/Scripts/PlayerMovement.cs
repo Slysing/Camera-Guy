@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 50, layer))
             {
-                Debug.Log("Hit: " + hit.transform.gameObject.name);
+                //Debug.Log("Hit: " + hit.transform.gameObject.name);
 
                 // tells the Animation controller script to activate once clicked on
                 AnimationController animCon = hit.transform.GetComponent<AnimationController>();
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             if (!dm.showingDialogue && em.chopEnabled)
             {
                 GameObject obj = Instantiate(ball, arm.transform.position + arm.transform.forward, arm.transform.rotation);
-                obj.GetComponent<Rigidbody>().AddForce(arm.transform.forward * 500);
+                obj.GetComponent<Rigidbody>().AddForce(arm.transform.forward * 1000);
             }    
         }
 

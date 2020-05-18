@@ -1,15 +1,28 @@
 Cashier|sad|Ah, Milk.
 Cashier|sad|A good choice.
-Cashier|sad|...
+Camera|10
 [Var]|revSet|true
+Cashier|sad|...
+Camera|11
 Gangster|smile|NOT SO FAST DWEEBS
+Camera|12
 Another Gangster|smile|THIS IS A ROBBERY
+Camera|13
 Cashier|strained|NO, NOT AGAIN!
+[Var]|milkHoard|true
+Camera|14
 Gangster|pensive|Don't you move a muscle. We're drinking this store dry.
+Camera|15
 Another Gangster|smile|And don't you try anything either tough guy,
+Camera|16
 Another Gangster|smile|This is our sector, I don't give one shit about your footage.
+Camera|17
 Another Gangster|smug|In this world, all that matters is the strength of your bones...
+Camera|18
 Another Gangster|smug|And the man with the milk is king.
+Camera|19
 Gangster|smug|Move out!
-||...
+[Var]|crashLeave|true
+Gangster|pensive|...
+Camera|20
 Cashier|sad|Aww shit not again.
