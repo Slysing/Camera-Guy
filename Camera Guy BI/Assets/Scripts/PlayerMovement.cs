@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             if (!dm.showingDialogue && em.chopEnabled)
             {
                 GameObject obj = Instantiate(ball, arm.transform.position + arm.transform.forward, arm.transform.rotation);
-                obj.GetComponent<Rigidbody>().AddForce(arm.transform.forward * 5);
+                obj.GetComponent<Rigidbody>().AddForce(arm.transform.forward * 500);
             }    
         }
 

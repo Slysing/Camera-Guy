@@ -36,8 +36,11 @@ public class WreckingBall : MonoBehaviour
         }
 
         if (destroyOnContact)
-        Destroy(gameObject);
 
+        {
+            Debug.Log("Hand" +  collision.transform.name);
+            Destroy(gameObject);
+        }
 
     }
 

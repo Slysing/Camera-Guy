@@ -34,7 +34,7 @@ public class Milk : MonoBehaviour
 
     public void SetTarget(Transform target)
     {
-        nav.enabled = true;
+    //    nav.enabled = true;
         currentTarget = target;
     }
 
