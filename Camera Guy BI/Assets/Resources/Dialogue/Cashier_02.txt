@@ -1,6 +1,7 @@
 Cashier|sad|Ah, Milk.
 Cashier|sad|A good choice.
 Cashier|sad|...
+[Var]|revSet|true
 Gangster|smile|NOT SO FAST DWEEBS
 Another Gangster|smile|THIS IS A ROBBERY
 Cashier|strained|NO, NOT AGAIN!

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -58,7 +59,6 @@ public class DialogueManager : MonoBehaviour
     private EventManager em;
     private CameraSwitch cameraSwitch;
 
-
     AudioSource voicePlayer;
 
     private void Awake()
@@ -109,7 +109,11 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        fileLines = file.text.Split('\n');
+        //fileLines = file.text.Split('\n');
+        fileLines = file.text.Split(
+        new[] { "\r\n", "\r", "\n", Environment.NewLine },
+        StringSplitOptions.None
+        );
 
         //sceneName = _sceneName;
         //fileLines = File.ReadAllLines($"{dialogueFilePath + _sceneName}.txt");
@@ -245,7 +249,13 @@ public class DialogueManager : MonoBehaviour
             }
             else if (field.FieldType == typeof(bool))
             {
-                field.SetValue(em, parsedText[2] == "true" ? true : false);
+                System.Text.RegularExpressions.Regex.Replace(parsedText[2], @"\s+", "");
+                field.SetValue(em, parsedText[2].Contains("true") ? true : false);
+                //print(parsedText[2].Length) evaluates as 5. There's an extra character in the string that prevents "== true" from working
+                foreach (char letter in parsedText[2])
+                {
+                    Debug.Log(letter);
+                } //LINEBREAK???
             }
             else
             {
@@ -293,7 +303,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKeyDown(advanceButton))
         {
-            if (Resources.Load<TextAsset>($"Dialogue/{sceneName}") == null || isFading || choiceBoxActive)
+            if (Resources.Load<TextAsset>($"Dialogue/{sceneName}") == null || isFading || choiceBoxActive || em.pauseDialogue)
             {
                 //print("DM Update: Couldn't find file: " + sceneName);
                 return;

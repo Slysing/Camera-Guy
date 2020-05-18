@@ -24,9 +24,18 @@ public class PlayerMovement : MonoBehaviour
     Vector3 Velocity;
     public bool isGrounded;
 
+    private DialogueManager dm;
+    private EventManager em;
 
     public GameObject arm;
     public GameObject ball;
+
+    private void Awake()
+    {
+        dm = FindObjectOfType<DialogueManager>();
+        em = FindObjectOfType<EventManager>();
+    }
+
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -67,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             // tracks mouse movement
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+
             if (Physics.Raycast(ray, out hit, 50, layer))
             {
                 Debug.Log("Hit: " + hit.transform.gameObject.name);
@@ -82,9 +92,11 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
-
-            GameObject obj = Instantiate(ball, arm.transform.position + arm.transform.forward, arm.transform.rotation);
-            obj.GetComponent<Rigidbody>().AddForce(arm.transform.forward * 1000);
+            if (!dm.showingDialogue && em.chopEnabled)
+            {
+                GameObject obj = Instantiate(ball, arm.transform.position + arm.transform.forward, arm.transform.rotation);
+                obj.GetComponent<Rigidbody>().AddForce(arm.transform.forward * 5);
+            }    
         }
 
 

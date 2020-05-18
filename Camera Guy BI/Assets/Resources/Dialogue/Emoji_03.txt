@@ -1,4 +1,5 @@
 Camera|6
 [Var]|faceIndex|4
 Landlord|smile|An excellent choice.
+[Var]|chopEnabled|true
 [Var]|faceIndex|0

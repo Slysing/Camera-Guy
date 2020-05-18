@@ -10,10 +10,24 @@ public class EventManager : MonoBehaviour
     public Texture[] faces;
     public Renderer emojihorrorFace;
 
+    //Rev time
+    public float revTimeSet;
+    [HideInInspector]
+    public bool revSet = false;
+    [HideInInspector]
+    public bool pauseDialogue = false;
+    public GameObject wallBreak;
+    private Animator wallBreakAnimator;
+
+    //Karate Chop
+    //[HideInInspector]
+    public bool chopEnabled = false;
+
     // Start is called before the first frame update
     void Awake()
     {
         faceMemory = faceIndex;
+        wallBreakAnimator = wallBreak.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -25,5 +39,18 @@ public class EventManager : MonoBehaviour
             Debug.Log(faceIndex);
             emojihorrorFace.materials[1].SetTexture("_EmojiFace", faces[faceIndex]);
         }
+
+        if(revSet)
+        {
+            revSet = false;
+            StartCoroutine(WaitForTime(revTimeSet));
+        }
+    }
+
+    IEnumerator WaitForTime(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        wallBreak.SetActive(true);
+        wallBreakAnimator.SetBool("Crash", true);
     }
 }
