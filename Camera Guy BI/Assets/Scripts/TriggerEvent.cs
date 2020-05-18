@@ -6,6 +6,7 @@ public class TriggerEvent : MonoBehaviour
 {
    public UnityEngine.Events.UnityEvent triggerEvent;
     public string neededTag;
+    public GameObject cashierCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,9 @@ public class TriggerEvent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(neededTag))
-        triggerEvent.Invoke();
+        if (other.CompareTag(neededTag)) {
+            triggerEvent.Invoke();
+            cashierCollider.name = "Cashier_02";
+        }
     }
 }
